@@ -1366,11 +1366,11 @@ bool BossTravelDestination::isActive(Player* bot)
     if ((int32)cInfo->maxlevel > bot->getLevel() + 3)
         return false;
 
-    FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
+   /* FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
     ReputationRank reaction = Unit::GetFactionReactionTo(bot->GetFactionTemplateEntry(), factionEntry);
 
     if (reaction >= REP_NEUTRAL)
-        return false;
+        return false;*/ //tmp
 
     WorldPosition botPos(bot);
     if (!isOut(&botPos))

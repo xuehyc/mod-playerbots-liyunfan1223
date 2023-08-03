@@ -21,6 +21,7 @@
 #include "Unit.h"
 #include "Vehicle.h"
 #include "WaypointMovementGenerator.h"
+#include "AiObject.h"
 
 MovementAction::MovementAction(PlayerbotAI* botAI, std::string const name) : Action(botAI, name)
 {
@@ -768,7 +769,7 @@ void MovementAction::UpdateMovementState()
         //bot->SetSpeedRate(MOVE_RUN, 1.1f);
 
     // check if target is not reachable (from Vmangos)
-    if (bot->GetMotionMaster()->GetCurrentMovementGeneratorType() == CHASE_MOTION_TYPE && bot->CanNotReachTarget() && !bot->InBattleground())
+    if (bot->GetMotionMaster()->GetCurrentMovementGeneratorType() == CHASE_MOTION_TYPE /*&& bot->CanNotReachTarget()*/  /* <-tmp */ && !bot->InBattleground())
     {
         if (Unit* pTarget = sServerFacade->GetChaseTarget(bot))
         {
@@ -801,7 +802,7 @@ void MovementAction::UpdateMovementState()
     }
 
     if ((bot->GetMotionMaster()->GetCurrentMovementGeneratorType() == FOLLOW_MOTION_TYPE ||
-        bot->GetMotionMaster()->GetCurrentMovementGeneratorType() == POINT_MOTION_TYPE) && bot->CanNotReachTarget() && !bot->InBattleground())
+        bot->GetMotionMaster()->GetCurrentMovementGeneratorType() == POINT_MOTION_TYPE) /*&& bot->CanNotReachTarget()*/ /* <-tmp */ && !bot->InBattleground())
     {
         if (Unit* pTarget = sServerFacade->GetChaseTarget(bot))
         {

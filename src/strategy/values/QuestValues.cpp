@@ -161,11 +161,11 @@ std::vector<GuidPosition> ActiveQuestGiversValue::Calculate()
 		{
 			CreatureTemplate const* creatureTemplate = guidp.GetCreatureTemplate();
 
-			if (creatureTemplate)
+			/*if (creatureTemplate)
 			{
 				if (bot->GetFactionReactionTo(bot->GetFactionTemplateEntry(), sFactionTemplateStore.LookupEntry(creatureTemplate->faction)) < REP_FRIENDLY)
 					continue;
-			}
+			}*/ //tmp
 
 			if (guidp.isDead())
 				continue;
@@ -212,14 +212,14 @@ std::vector<GuidPosition> ActiveQuestTakersValue::Calculate()
 
 		for (auto& entry : qt->second)
 		{
-			if (entry.first > 0)
+			/*if (entry.first > 0)
 			{
 				if (CreatureTemplate const* info = sObjectMgr->GetCreatureTemplate(entry.first))
 				{
 		            if (bot->GetFactionReactionTo(bot->GetFactionTemplateEntry(), sFactionTemplateStore.LookupEntry(info->faction)) < REP_FRIENDLY)
                         continue;
 				}
-			}
+			}*/ //tmp
 
 			for (auto& guidp : entry.second)
 			{

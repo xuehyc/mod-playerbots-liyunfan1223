@@ -6,6 +6,14 @@
 #include "ChatHelper.h"
 #include "LootObjectStack.h"
 #include "Playerbots.h"
+#include "Unit.h"
+#include "PlayerbotAIAware.h"
+#include "DBCStore.h"
+#include "DBCStructure.h"
+#include "PlayerbotAI.h"
+#include "SharedDefines.h"
+
+
 
 bool ChooseTravelTargetAction::Execute(Event event)
 {
@@ -641,11 +649,11 @@ bool ChooseTravelTargetAction::SetNpcFlagTarget(TravelTarget* target, std::vecto
                 continue;
         }
 
-        FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
+        /*FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
         ReputationRank reaction = Unit::GetFactionReactionTo(botAI->GetBot()->GetFactionTemplateEntry(), factionEntry);
 
         if (reaction < REP_NEUTRAL)
-            continue;
+            continue;*/ //tmp
 
         dests.push_back(d);
     }

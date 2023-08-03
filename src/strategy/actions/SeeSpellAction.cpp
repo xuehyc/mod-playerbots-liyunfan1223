@@ -56,21 +56,21 @@ bool SeeSpellAction::Execute(Event event)
     bool inRange = spellPosition.distance(bot) <= 10;
     std::string const nextAction = AI_VALUE(std::string, "RTSC next spell action");
 
-    if (nextAction.empty())
-    {
-        if (!inRange && selected)
-            master->SendPlaySpellVisual(bot->GetGUID(), 6372);
-        else if (inRange && !selected)
-            master->SendPlaySpellVisual(bot->GetGUID(), 5036);
+    //if (nextAction.empty())
+    //{
+    //    if (!inRange && selected)
+    //        master->SendPlaySpellVisual(bot->GetGUID(), 6372);    //tmp
+    //    else if (inRange && !selected)
+    //        master->SendPlaySpellVisual(bot->GetGUID(), 5036);
 
-        SET_AI_VALUE(bool, "RTSC selected", inRange);
+    //    SET_AI_VALUE(bool, "RTSC selected", inRange);
 
-        if (selected)
-            return MoveToSpell(spellPosition);
+    //    if (selected)
+    //        return MoveToSpell(spellPosition);
 
-        return inRange;
-    }
-    else if (nextAction == "move")
+    //    return inRange;
+    //} //tmp //Dont forget else below
+    /*else*/ if (nextAction == "move")
     {
         return MoveToSpell(spellPosition);
     }
@@ -107,7 +107,7 @@ bool SeeSpellAction::SelectSpell(WorldPosition& spellPosition)
     if (spellPosition.distance(bot) <= 5 || AI_VALUE(bool, "RTSC selected"))
     {
         SET_AI_VALUE(bool, "RTSC selected", true);
-        master->SendPlaySpellVisual(bot->GetGUID(), 5036);
+        //master->SendPlaySpellVisual(bot->GetGUID(), 5036);    //tmp
     }
 
     return true;

@@ -53,14 +53,15 @@ void TravelNodePath::calculateCost(bool distanceOnly)
                 if (cInfo)
                 {
                     FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
-
-                    if (aReact.find(factionEntry) == aReact.end())
+                    //tmp
+                   /* if (aReact.find(factionEntry) == aReact.end())
                         aReact.insert(std::make_pair(factionEntry, Unit::GetFactionReactionTo(factionEntry, sFactionTemplateStore.LookupEntry(1)) > REP_NEUTRAL));
-                    aFriend = aReact.find(factionEntry)->second;
+                    */aFriend = aReact.find(factionEntry)->second;
 
-                    if (hReact.find(factionEntry) == hReact.end())
+                    //tmp
+                    /*if (hReact.find(factionEntry) == hReact.end())
                         hReact.insert(std::make_pair(factionEntry, Unit::GetFactionReactionTo(factionEntry, sFactionTemplateStore.LookupEntry(2)) > REP_NEUTRAL));
-                    hFriend = hReact.find(factionEntry)->second;
+                    */hFriend = hReact.find(factionEntry)->second;
 
                     if (maxLevelCreature[0] < cInfo->maxlevel && !aFriend && !hFriend)
                         maxLevelCreature[0] = cInfo->maxlevel;
@@ -127,17 +128,17 @@ float TravelNodePath::getCost(Player* bot, uint32 cGold)
             swimSpeed *= 1.5;
 
         uint32 level = bot->getLevel();
-        bool isAlliance = Unit::GetFactionReactionTo(bot->GetFactionTemplateEntry(), sFactionTemplateStore.LookupEntry(1)) > REP_NEUTRAL;
-
+        //bool isAlliance = Unit::GetFactionReactionTo(bot->GetFactionTemplateEntry(), sFactionTemplateStore.LookupEntry(1)) > REP_NEUTRAL;
+        //tmp
         int factionAnnoyance = 0;
         if (maxLevelCreature.size() > 0)
         {
             int mobAnnoyance = (maxLevelCreature[0] - level) - 10; //Mobs 10 levels below do not bother us.
 
-            if (isAlliance)
-                factionAnnoyance = (maxLevelCreature[2] - level) - 10; // Opposite faction below 30 do not bother us.
-            else if (!isAlliance)
-                factionAnnoyance = (maxLevelCreature[1] - level) - 10;
+            //if (isAlliance)
+            //    factionAnnoyance = (maxLevelCreature[2] - level) - 10; // Opposite faction below 30 do not bother us.
+            //else if (!isAlliance)
+            //    factionAnnoyance = (maxLevelCreature[1] - level) - 10;    //tmp
 
             if (mobAnnoyance > 0)
                 modifier += 0.1 * mobAnnoyance; // For each level the whole path takes 10% longer.

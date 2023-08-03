@@ -6,6 +6,8 @@
 #include "ChooseTravelTargetAction.h"
 #include "MapMgr.h"
 #include "Playerbots.h"
+#include "Unit.h"
+
 
 bool DebugAction::Execute(Event event)
 {
@@ -456,7 +458,7 @@ bool DebugAction::Execute(Event event)
     else if (text.find("spell ") != std::string::npos)
     {
         uint32 spellEffect = stoi(text.substr(6));
-        master->SendPlaySpellVisual(bot->GetGUID(), spellEffect);
+        //master->SendPlaySpellVisual(bot->GetGUID(), spellEffect); //tmp
         return true;
     }
     else if (text.find("tspellmap") != std::string::npos)
@@ -821,7 +823,7 @@ bool DebugAction::Execute(Event event)
                     if (!target)
                         target = master;
 
-                    master->SendPlaySpellVisual(caster->GetGUID(), 5036);
+                    //master->SendPlaySpellVisual(caster->GetGUID(), 5036); //tmp
                     FakeSpell(effect, realCaster, caster, target->GetGUID(), hits, miss, WorldPosition(caster), WorldPosition(target));
 
                     std::this_thread::sleep_for(std::chrono::milliseconds(20));

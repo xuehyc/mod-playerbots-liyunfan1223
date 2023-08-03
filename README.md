@@ -1,3 +1,5 @@
+ver:liyunfan1223
+
 # Playerbots Module
 
 This is a WIP Playerbots module for AzerothCore based on IKE3 Playerbots. Code is port from: https://github.com/ZhengPeiRu21/mod-playerbots

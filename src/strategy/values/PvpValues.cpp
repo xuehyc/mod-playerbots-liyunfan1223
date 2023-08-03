@@ -129,8 +129,8 @@ CreatureData const* BgMasterValue::NearestBm(bool allowDead)
         FactionTemplateEntry const* bmFactionEntry = sFactionTemplateStore.LookupEntry(bmTemplate->faction);
 
         //Is the unit hostile?
-        if (Unit::GetFactionReactionTo(bot->GetFactionTemplateEntry(), bmFactionEntry) < REP_NEUTRAL)
-            continue;
+        /*if (Unit::GetFactionReactionTo(bot->GetFactionTemplateEntry(), bmFactionEntry) < REP_NEUTRAL)
+            continue;*/ //tmp
 
         AreaTableEntry const* area = bmPos.getArea();
 

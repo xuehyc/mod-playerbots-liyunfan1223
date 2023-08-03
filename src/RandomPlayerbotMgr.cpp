@@ -1845,14 +1845,14 @@ void RandomPlayerbotMgr::OnPlayerLogin(Player* player)
                 if (!cInfo)
                     continue;
 
-                FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
+              /*  FactionTemplateEntry const* factionEntry = sFactionTemplateStore.LookupEntry(cInfo->faction);
                 ReputationRank reaction = Unit::GetFactionReactionTo(player->GetFactionTemplateEntry(), factionEntry);
 
                 if (reaction > REP_NEUTRAL && dest->nearestPoint(&botPos)->m_mapId == player->GetMapId())
                 {
                     botPos = *dest->nearestPoint(&botPos);
                     break;
-                }
+                }*/ //tmp   //此处可能会引起死循环,如果出现,来看这里
             } while (true);
         }
 
